@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://cpjkim560d1s2"]
+
+[ext_resource type="Script" path="res://scripts/character_creator.gd" id="1_cqrhc"]
+[ext_resource type="Texture2D" uid="uid://ddt18x30kjjmp" path="res://assets/character/body/char_a_p1_0bas_humn_v01.png" id="1_qqdx7"]
+[ext_resource type="Script" path="res://scripts/body.gd" id="2_7cmuw"]
+[ext_resource type="Texture2D" uid="uid://dpg70eiwafm8x" path="res://assets/character/hair/char_a_p1_4har_bob1_v01.png" id="2_gl3v6"]
+[ext_resource type="Texture2D" uid="uid://b0xun5rcnfovr" path="res://assets/character/outfit/char_a_p1_1out_boxr_v01.png" id="3_fl22f"]
+[ext_resource type="Texture2D" uid="uid://7rd0x02oxatk" path="res://assets/character/accessories/char_a_p1_5hat_pfht_v04.png" id="4_a22bw"]
+[ext_resource type="Script" path="res://scripts/hair.gd" id="4_ss4ye"]
+[ext_resource type="Script" path="res://scripts/outift.gd" id="6_hs0c6"]
+[ext_resource type="Script" path="res://scripts/accessory.gd" id="8_nxyc7"]
+
+[node name="CharacterCreator" type="Node2D"]
+script = ExtResource("1_cqrhc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.419608, 0.768627, 0.898039, 1)
+
+[node name="Skeleton" type="Node2D" parent="."]
+position = Vector2(570, 120)
+scale = Vector2(5, 5)
+
+[node name="Body" type="Node2D" parent="Skeleton"]
+script = ExtResource("2_7cmuw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Body"]
+texture = ExtResource("1_qqdx7")
+hframes = 8
+vframes = 8
+
+[node name="Hair" type="Node2D" parent="Skeleton"]
+script = ExtResource("4_ss4ye")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Hair"]
+texture = ExtResource("2_gl3v6")
+hframes = 8
+vframes = 8
+
+[node name="Outift" type="Node2D" parent="Skeleton"]
+script = ExtResource("6_hs0c6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Outift"]
+texture = ExtResource("3_fl22f")
+hframes = 8
+vframes = 8
+
+[node name="Accessory" type="Node2D" parent="Skeleton"]
+script = ExtResource("8_nxyc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Accessory"]
+texture = ExtResource("4_a22bw")
+hframes = 8
+vframes = 8
